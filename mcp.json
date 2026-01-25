@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "kicad-automator": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--with",
+        "fastmcp",
+        "backend/server.py"
+      ]
+    }
+  }
+}
