@@ -2,7 +2,39 @@
 
 import React, { useRef, useState, MouseEvent } from "react";
 import { motion, useMotionTemplate, useMotionValue, Variants } from "framer-motion";
-// ... imports
+import { 
+  Cpu, 
+  Zap, 
+  Share2, 
+  Layers, 
+  ArrowRight, 
+  Terminal, 
+  Grid,
+  CheckCircle,
+  Loader2
+} from "lucide-react";
+import { useRouter } from "next/navigation";
+import { auth, googleProvider, db } from "@/lib/firebase";
+import { signInWithPopup } from "firebase/auth";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+
+// --- Components ---
+
+function Badge() {
+  return (
+    <motion.div 
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 mb-8"
+    >
+      <div className="h-2 w-2 rounded-full bg-indigo-500 animate-pulse" />
+      <span className="text-xs font-medium text-gray-400 uppercase tracking-widest">
+        v1.0.0 Public Beta
+      </span>
+    </motion.div>
+  );
+}
 
 function Hero() {
   const router = useRouter();
