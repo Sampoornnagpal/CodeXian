@@ -1,0 +1,24 @@
+STEP-BY-STEP IMPLEMENTATION PLAN
+
+PHASE 1: FRONTEND & SYNC (The "Multiplayer" Layer)
+1. User Action: A user interacts with the Web Frontend (Next.js).
+2. State Capture: The frontend application captures this action (e.g., placing a component) using Yjs (a shared type library).
+3. Database Sync: Yjs immediately pushes this state change to Firestore via the `y-firestore` adapter.
+   -> RESULT: The persisted state in Firestore is now up-to-date.
+
+PHASE 2: THE AI TRIGGER (The Intelligence Layer)
+4. Trigger: A Firebase Cloud Function or MCP Server observes the Firestore database.
+5. Task Detection: When a "Command" (like "Auto-route") is detected, the system wakes up.
+6. Context Retrieval: The MCP Server pulls the latest board state (netlist, coordinates) from Firestore.
+7. LLM Processing: The MCP sends the data + user prompt to the LLM (Large Language Model).
+8. Script Generation: The LLM generates a targeted Python script to perform the requested engineering task.
+
+PHASE 3: EXECUTION (The Engineering Layer)
+9. Handoff: The MCP sends the generated Python script to a "Headless KiCad" Docker container.
+10. Deep Processing: The KiCad container executes the script using the actual KiCad engine (`pcbnew`). This handles the complex geometry and electrical rule checking.
+11. Output: The container produces a modified board file (or diff).
+
+PHASE 4: FEEDBACK LOOP
+12. Data Update: The KiCad service returns the new data to the MCP, which writes it back to Firestore.
+13. Live Render: The Frontend, listening to Firestore, automatically receives the update and renders the new tracks.
+   -> RESULT: The user sees the AI-completed task appear instantly on their screen.
