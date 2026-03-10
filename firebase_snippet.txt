@@ -1,0 +1,22 @@
+
+<!-- Firebase SDK -->
+<script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js';
+    import { getFirestore, collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js';
+
+    const app = initializeApp({
+        apiKey: "AIzaSyBC15-B4Zc1kT5-qFiAzer7MQEroMxhCyY",
+        authDomain: "codexian-8968c.firebaseapp.com",
+        projectId: "codexian-8968c",
+        storageBucket: "codexian-8968c.firebasestorage.app",
+        messagingSenderId: "1019279482102",
+        appId: "1:1019279482102:web:e120cd1da671d4bd4e60d7",
+        measurementId: "G-NLVD8MC3YF"
+    });
+
+    const db = getFirestore(app);
+    window.__codexianDB = db;
+    window.__codexianAddDoc = addDoc;
+    window.__codexianCollection = collection;
+    window.__codexianServerTimestamp = serverTimestamp;
+</script>

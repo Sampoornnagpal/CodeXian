@@ -1,0 +1,9 @@
+projectId=codexian-8968c
+appId=1:1019279482102:web:e120cd1da671d4bd4e60d7
+storageBucket=codexian-8968c.firebasestorage.app
+apiKey=AIzaSyBC15-B4Zc1kT5-qFiAzer7MQEroMxhCyY
+authDomain=codexian-8968c.firebaseapp.com
+messagingSenderId=1019279482102
+measurementId=G-NLVD8MC3YF
+projectNumber=1019279482102
+version=2

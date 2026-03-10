@@ -1,17 +1,21 @@
 {
   "firestore": {
+    "database": "(default)",
+    "location": "nam5",
     "rules": "firestore.rules",
     "indexes": "firestore.indexes.json"
   },
   "hosting": {
-    "source": ".",
+    "public": ".",
     "ignore": [
       "firebase.json",
+      "firestore.rules",
+      "firestore.indexes.json",
       "**/.*",
-      "**/node_modules/**"
-    ],
-    "frameworksBackend": {
-      "region": "us-central1"
-    }
+      "**/node_modules/**",
+      "firebase_config_output.json",
+      "firebase_snippet.txt",
+      "sdk_config_clean.txt"
+    ]
   }
 }

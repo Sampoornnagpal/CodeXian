@@ -1,9 +1,11 @@
-rules_version='2'
-
+rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /waitlist/{document} {
-      allow create: if request.auth != null;
+    match /waitlist/{email} {
+      allow create: if request.resource.data.keys().hasAll(['email', 'timestamp'])
+                    && request.resource.data.email is string
+                    && request.resource.data.email.size() > 0;
+      allow read, update, delete: if false;
     }
   }
 }
