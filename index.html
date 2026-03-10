@@ -1,43 +1,15 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codexian AI — Cursor for Hardware Design</title>
+    <meta name="description" content="Describe hardware in plain English. Codexian's Brain Layer generates, places, routes, and validates your PCB — inside your editor.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/12.10.0/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/12.10.0/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/12.10.0/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/12.10.0/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/12.10.0/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/12.10.0/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/12.10.0/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/12.10.0/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/12.10.0/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/12.10.0/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  
 <!-- Firebase SDK -->
 <script type="module">
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js';
@@ -61,52 +33,389 @@
 </script>
 
 </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+<body>
+
+    <!-- ═══ VIGNETTE OVERLAY ═══ -->
+    <div class="vignette"></div>
+
+    <!-- ═══ GRAIN OVERLAY ═══ -->
+    <div class="grain"></div>
+
+    <!-- ═══ CORNER HUD — TOP LEFT ═══ -->
+    <div class="hud hud-tl">
+        <a href="#" class="logo-mark">
+            <img src="logo.png" alt="Codexian" class="logo-img">
+        </a>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+    <!-- ═══ CORNER HUD — TOP RIGHT ═══ -->
+    <nav class="hud hud-tr">
+        <a href="#features" class="hud-link">Features</a>
+        <a href="#brain" class="hud-link">Brain Layer</a>
+        <a href="#pipeline" class="hud-link">Pipeline</a>
+        <a href="#waitlist" class="hud-link hud-link--accent">Early Access</a>
+    </nav>
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
+    <!-- ═══ CORNER HUD — BOTTOM LEFT ═══ -->
+    <div class="hud hud-bl">
+        <span class="hud-meta">// Cursor for Hardware Design</span>
+        <span class="hud-meta">// v2.0 — Brain Layer Active</span>
+    </div>
+
+    <!-- ═══ CORNER HUD — BOTTOM RIGHT ═══ -->
+    <div class="hud hud-br">
+        <span class="hud-meta hud-scroll-hint" id="scrollHint">↓ SCROLL TO EXPLORE</span>
+    </div>
+
+    <!-- ═══════ HERO SECTION ═══════ -->
+    <section class="hero" id="hero">
+        <div class="hero-center">
+            <div class="hero-tag">
+                <span class="tag-dot"></span>
+                NOW IN PROOF OF CONCEPT
+            </div>
+            <h1 class="hero-title">
+                <span class="hero-line">The AI That</span>
+                <span class="hero-line hero-line--glow">Designs PCBs</span>
+            </h1>
+            <p class="hero-sub">
+                Describe any hardware in plain English.<br>
+                Codexian's Brain Layer generates, places, routes,<br>
+                and validates your PCB — all inside your editor.
+            </p>
+            <div class="hero-ctas">
+                <a href="#waitlist" class="cta-main">
+                    Request Early Access
+                    <span class="cta-arrow">→</span>
+                </a>
+                <a href="#pipeline" class="cta-ghost">
+                    See How It Works
+                </a>
+            </div>
+        </div>
+        <div class="hero-fade-bottom"></div>
+    </section>
+
+    <!-- ═══════ SCROLL SEQUENCE ═══════ -->
+    <section class="scroll-sequence" id="scroll-sequence">
+        <div class="sequence-sticky">
+            <canvas id="scrollCanvas"></canvas>
+            <div class="sequence-overlay" id="sequenceOverlay">
+                <div class="seq-text" id="seqText1">
+                    <span class="seq-label">INTENT</span>
+                    <h2>"Design a temperature sensor<br>with WiFi and 3 LEDs"</h2>
+                </div>
+                <div class="seq-text" id="seqText2">
+                    <span class="seq-label">BRAIN LAYER ACTIVATED</span>
+                    <h2>AI generates BOM, netlist,<br>placement & routing</h2>
+                </div>
+                <div class="seq-text" id="seqText3">
+                    <span class="seq-label">SHADOW ENGINEERING</span>
+                    <h2>15+ real-time checks.<br>Auto-fix violations.</h2>
+                </div>
+                <div class="seq-text" id="seqText4">
+                    <span class="seq-label">RESULT</span>
+                    <h2>Production-ready PCB.<br>From idea to board in seconds.</h2>
+                </div>
+            </div>
+            <!-- SCROLL PROGRESS BAR -->
+            <div class="seq-progress">
+                <div class="seq-progress-fill" id="seqProgressFill"></div>
+            </div>
+            <!-- FRAME COUNTER -->
+            <div class="seq-counter" id="seqCounter">001 / 240</div>
+        </div>
+    </section>
+
+    <!-- ═══════ FEATURES ═══════ -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-tag">CAPABILITIES</span>
+                <h2 class="section-title">Everything you need.<br><span class="glow-text">Nothing you don't.</span></h2>
+            </div>
+
+            <!-- Feature Hero Card -->
+            <div class="feature-hero" data-reveal>
+                <div class="fh-left">
+                    <h3>Natural Language → PCB</h3>
+                    <p>Describe your hardware in plain English. The AI understands microcontrollers, sensors, power rails, connectors — and builds the complete design.</p>
+                </div>
+                <div class="fh-right">
+                    <div class="code-block">
+                        <span class="code-dim">// Your input</span><br>
+                        <span class="code-green">"Build a motor driver with<br>&nbsp;&nbsp;H-bridge and encoder feedback"</span><br><br>
+                        <span class="code-dim">// Codexian output</span><br>
+                        <span class="code-cyan">→</span> 12 components placed<br>
+                        <span class="code-cyan">→</span> 18 nets routed<br>
+                        <span class="code-cyan">→</span> 0 DRC violations
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature Grid -->
+            <div class="feature-grid">
+                <div class="f-card" data-reveal>
+                    <div class="f-num">01</div>
+                    <h4>6-Phase AI Pipeline</h4>
+                    <p>Catalog → Map → Place → Route → Compile → Validate. Each phase is AI-driven with structured prompting.</p>
+                </div>
+                <div class="f-card" data-reveal>
+                    <div class="f-num">02</div>
+                    <h4>Shadow Engineering</h4>
+                    <p>15+ real-time checks across ERC, DRC, and SI/PI. Catches output contention, floating inputs, impedance issues.</p>
+                </div>
+                <div class="f-card" data-reveal>
+                    <div class="f-num">03</div>
+                    <h4>Auto-Fix Engine</h4>
+                    <p>Generates Python fix scripts, executes them, re-validates. A closed-loop healing system.</p>
+                </div>
+                <div class="f-card" data-reveal>
+                    <div class="f-num">04</div>
+                    <h4>85+ Footprints</h4>
+                    <p>Comprehensive KiCad library mapping. 3-tier lookup: JSON map → fuzzy match → AI fallback.</p>
+                </div>
+                <div class="f-card" data-reveal>
+                    <div class="f-num">05</div>
+                    <h4>Desktop-Native</h4>
+                    <p>Works offline. No browser. No metering. Your designs stay on your machine — critical for IP-sensitive hardware.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ BRAIN LAYER ═══════ -->
+    <section class="section section--dark" id="brain">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-tag">ARCHITECTURE</span>
+                <h2 class="section-title">The Brain Layer</h2>
+                <p class="section-sub">Our proprietary AI intelligence layer sits on top of the open-source editor.<br>The editor is free. The Brain is the product.</p>
+            </div>
+            <div class="brain-stack" data-reveal>
+                <div class="brain-tier brain-tier--top">
+                    <div class="tier-header">
+                        <span class="tier-name">CODEXIAN BRAIN LAYER</span>
+                        <span class="tier-badge">Proprietary</span>
+                    </div>
+                    <div class="tier-modules">
+                        <div class="tier-mod">
+                            <span class="mod-label">01</span>
+                            <h4>AI Build Pipeline</h4>
+                            <p>BOM → Footprint → Placement → Routing → Compile</p>
+                        </div>
+                        <div class="tier-mod">
+                            <span class="mod-label">02</span>
+                            <h4>Shadow Engineer</h4>
+                            <p>ERC + DRC + SI/PI checks, 15+ real-time rules</p>
+                        </div>
+                        <div class="tier-mod">
+                            <span class="mod-label">03</span>
+                            <h4>Auto-Fix Engine</h4>
+                            <p>AI-powered violation repair with re-validation</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="brain-connector">
+                    <div class="connector-line"></div>
+                    <span class="connector-label">INTEGRATED VIA IPC PROTOCOL</span>
+                    <div class="connector-line"></div>
+                </div>
+                <div class="brain-tier brain-tier--bottom">
+                    <div class="tier-header">
+                        <span class="tier-name">CODEXIAN PCB EDITOR</span>
+                        <span class="tier-badge tier-badge--cyan">Free & Open</span>
+                    </div>
+                    <p class="tier-desc">Modified KiCad core — Schematic Capture + PCB Layout + 3D Viewer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ PIPELINE ═══════ -->
+    <section class="section" id="pipeline">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-tag">HOW IT WORKS</span>
+                <h2 class="section-title">6 Phases. <span class="glow-text">Zero Manual Work.</span></h2>
+            </div>
+            <div class="pipeline">
+                <div class="pipe-step" data-reveal>
+                    <div class="pipe-num">01</div>
+                    <div class="pipe-body">
+                        <h4>Catalog</h4>
+                        <p>AI generates a structured BOM with components, nets, power rails, and reference designators from your intent.</p>
+                    </div>
+                </div>
+                <div class="pipe-step" data-reveal>
+                    <div class="pipe-num">02</div>
+                    <div class="pipe-body">
+                        <h4>Map</h4>
+                        <p>Every component is mapped to exact KiCad footprint libraries. 3-tier lookup with AI fallback for unknowns.</p>
+                    </div>
+                </div>
+                <div class="pipe-step" data-reveal>
+                    <div class="pipe-num">03</div>
+                    <div class="pipe-body">
+                        <h4>Place</h4>
+                        <p>Components placed intelligently — signal flow, thermal management, decoupling proximity, board area optimization.</p>
+                    </div>
+                </div>
+                <div class="pipe-step" data-reveal>
+                    <div class="pipe-num">04</div>
+                    <div class="pipe-body">
+                        <h4>Route</h4>
+                        <p>Manhattan routing with net-class-aware widths. Power traces 0.5mm, signal traces 0.25mm. Star topology for multi-pin nets.</p>
+                    </div>
+                </div>
+                <div class="pipe-step" data-reveal>
+                    <div class="pipe-num">05</div>
+                    <div class="pipe-body">
+                        <h4>Compile</h4>
+                        <p>All phases merged into a single master build script that executes inside KiCad — one click to render the complete PCB.</p>
+                    </div>
+                </div>
+                <div class="pipe-step" data-reveal>
+                    <div class="pipe-num">06</div>
+                    <div class="pipe-body">
+                        <h4>Validate</h4>
+                        <p>Shadow Engineer runs 15+ checks (ERC, DRC, SI/PI). Auto-fix engine repairs violations and re-validates.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ COMPARISON ═══════ -->
+    <section class="section section--dark" id="comparison">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-tag">COMPARISON</span>
+                <h2 class="section-title">Why Codexian <span class="glow-text">wins.</span></h2>
+            </div>
+            <div class="cmp-wrap" data-reveal>
+                <table class="cmp-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th class="cmp-hl">Codexian AI</th>
+                            <th>Flux.ai</th>
+                            <th>Altium Designer</th>
+                            <th>KiCad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Price</td>
+                            <td class="cmp-hl"><strong>Free + ₹1,500/mo Brain</strong></td>
+                            <td>$20–$158/mo</td>
+                            <td>₹1.25L–3.75L/yr</td>
+                            <td>Free</td>
+                        </tr>
+                        <tr>
+                            <td>NL → PCB</td>
+                            <td class="cmp-hl"><span class="yes">✓</span> Full Pipeline</td>
+                            <td><span class="yes">✓</span> Copilot</td>
+                            <td><span class="no">✗</span></td>
+                            <td><span class="no">✗</span></td>
+                        </tr>
+                        <tr>
+                            <td>Shadow Engineering</td>
+                            <td class="cmp-hl"><span class="yes">✓</span> 15+ checks</td>
+                            <td><span class="mid">◐</span> Basic DRC</td>
+                            <td><span class="mid">◐</span> DRC only</td>
+                            <td><span class="mid">◐</span> DRC only</td>
+                        </tr>
+                        <tr>
+                            <td>SI/PI Checks</td>
+                            <td class="cmp-hl"><span class="yes">✓</span> Impedance, 3W, thermal</td>
+                            <td><span class="no">✗</span></td>
+                            <td><span class="mid">◐</span> Separate tool</td>
+                            <td><span class="no">✗</span></td>
+                        </tr>
+                        <tr>
+                            <td>Auto-Fix Engine</td>
+                            <td class="cmp-hl"><span class="yes">✓</span> AI generates + executes</td>
+                            <td><span class="no">✗</span></td>
+                            <td><span class="no">✗</span></td>
+                            <td><span class="no">✗</span></td>
+                        </tr>
+                        <tr>
+                            <td>Works Offline</td>
+                            <td class="cmp-hl"><span class="yes">✓</span></td>
+                            <td><span class="no">✗</span> Browser only</td>
+                            <td><span class="yes">✓</span></td>
+                            <td><span class="yes">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Scripting</td>
+                            <td class="cmp-hl"><span class="yes">✓</span> Full Python</td>
+                            <td><span class="no">✗</span></td>
+                            <td><span class="yes">✓</span></td>
+                            <td><span class="yes">✓</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ TERMINAL DEMO ═══════ -->
+    <section class="section" id="demo">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-tag">LIVE DEMO</span>
+                <h2 class="section-title">See it <span class="glow-text">in action.</span></h2>
+            </div>
+            <div class="terminal" data-reveal>
+                <div class="term-bar">
+                    <div class="term-dots"><span></span><span></span><span></span></div>
+                    <span class="term-title">codexian-build-console</span>
+                </div>
+                <div class="term-body" id="termBody">
+                    <div class="term-line">
+                        <span class="term-prompt">codexian@brain ~$</span>
+                        <span class="term-typed" id="termTyped"></span><span class="term-cursor">▊</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ WAITLIST CTA ═══════ -->
+    <section class="section section--cta" id="waitlist">
+        <div class="container">
+            <div class="cta-block">
+                <span class="section-tag">EARLY ACCESS</span>
+                <h2 class="cta-title">Hardware design<br>is about to change.</h2>
+                <p class="cta-desc">Join the waitlist for Codexian PCB Editor with Brain Layer.<br>Be among the first to build hardware with AI.</p>
+                <form class="cta-form" id="waitlistForm">
+                    <input type="email" placeholder="your@email.com" required class="cta-input" id="emailInput">
+                    <button type="submit" class="cta-submit">
+                        Join Waitlist <span>→</span>
+                    </button>
+                </form>
+                <p class="cta-fine">Free forever for the editor. Brain Layer Pro coming soon.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ FOOTER ═══════ -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-left">
+                <img src="logo.png" alt="Codexian" class="logo-img logo-img--sm">
+                <span class="footer-copy">© 2026</span>
+            </div>
+            <div class="footer-right">
+                <a href="#features">Features</a>
+                <a href="#brain">Brain Layer</a>
+                <a href="#pipeline">Pipeline</a>
+                <a href="#comparison">Compare</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
